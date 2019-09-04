@@ -20,3 +20,17 @@ DOCKER_REPO=julianweberdev
 IMAGE=circleci-kubectl-helm
 docker run -i -t "$DOCKER_REPO/$IMAGE" /bin/bash
 ```
+
+## Run the image locally with kubernetes
+Start a bash shell in a local container:
+
+```
+DOCKER_REPO=julianweberdev
+IMAGE=circleci-kubectl-helm:latest
+DEPLOYMENT=circleci-kubectl-helm-container
+
+kubectl run -i -t --generator=deployment/apps.v1 --image=$DOCKER_REPO/$IMAGE $DEPLOYMENT
+
+# remove container afterwards
+kubectl delete deployments/$DEPLOYMENT
+```
