@@ -1,6 +1,6 @@
 # Docker Image for circle ci automation: Installed Kubectl + helm
 This provides a docker image for usage within deployment automation.
-It provides a preinstalled kubectl and helm image.
+It provides a preinstalled kubectl, helm2 and helm3 binaries.
 
 ## Building the image
 Ensure you are logged in to your docker repository.
@@ -18,7 +18,8 @@ Start a bash shell in a local container:
 ```
 DOCKER_REPO=julianweberdev
 IMAGE=circleci-kubectl-helm
-docker run -i -t "$DOCKER_REPO/$IMAGE" /bin/bash
+TAG=latest
+docker run -i -t "$DOCKER_REPO/$IMAGE:$TAG" /bin/bash
 ```
 
 ## Run the image locally with kubernetes
@@ -26,10 +27,11 @@ Start a bash shell in a local container:
 
 ```
 DOCKER_REPO=julianweberdev
-IMAGE=circleci-kubectl-helm:latest
+TAG=latest
+IMAGE=circleci-kubectl-helm:$TAG
 DEPLOYMENT=circleci-kubectl-helm-container
 
-kubectl run -i -t --generator=deployment/apps.v1 --image=$DOCKER_REPO/$IMAGE $DEPLOYMENT
+kubectl run -i -t --generator=deployment/apps.v1 --image=$DOCKER_REPO/$IMAGE:$TAG $DEPLOYMENT
 
 # remove container afterwards
 kubectl delete deployments/$DEPLOYMENT
