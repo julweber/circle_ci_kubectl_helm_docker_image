@@ -4,9 +4,9 @@ set -euo pipefail
 
 # Configuration (adjust as needed)
 export DOCKER_REPO=julianweberdev/circleci-kubectl-helm
-export K8S_VERSION="v1.17.1"
-export HELM_VERSION="v2.14.3"
-export HELM3_VERSION="v3.0.2"
+export K8S_VERSION="v1.18.0"
+export HELM_VERSION="v2.16.6"
+export HELM3_VERSION="v3.2.0"
 
 export TAG="k${K8S_VERSION}-h${HELM_VERSION}-h3${HELM3_VERSION}"
 

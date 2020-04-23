@@ -34,4 +34,7 @@ RUN sudo apt-get install ca-certificates curl gettext tar gzip \
     && helm3 plugin install "https://github.com/helm/helm-2to3" \
     && helm3 plugin install "https://github.com/databus23/helm-diff"
 
+# install heroku cli
+RUN curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
 CMD ["/bin/sh"]

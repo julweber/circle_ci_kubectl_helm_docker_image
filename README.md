@@ -1,6 +1,6 @@
 # Docker Image for circle ci automation: Installed Kubectl + helm
 This provides a docker image for usage within deployment automation.
-It provides a preinstalled kubectl, helm2 and helm3 binaries.
+It provides a preinstalled kubectl, heroku, helm2 and helm3 binaries.
 
 ## Building the image
 Ensure you are logged in to your docker repository.
